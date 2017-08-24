@@ -400,19 +400,16 @@ void static BitcoinMiner(const CChainParams& chainparams)
     LogPrintf("DashMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("dash-miner");
-
     unsigned int nExtraNonce = 0;
 
     boost::shared_ptr<CReserveScript> coinbaseScript;
     GetMainSignals().ScriptForMining(coinbaseScript);
-
     try {
         // Throw an error if no script was provided.  This can happen
         // due to some internal error but also if the keypool is empty.
         // In the latter case, already the pointer is NULL.
         if (!coinbaseScript || coinbaseScript->reserveScript.empty())
             throw std::runtime_error("No coinbase script available (mining requires a wallet)");
-
         while (true) {
             if (chainparams.MiningRequiresPeers()) {
                 // Busy-wait for the network to come online so we don't waste time mining
@@ -436,7 +433,6 @@ void static BitcoinMiner(const CChainParams& chainparams)
             unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
             CBlockIndex* pindexPrev = chainActive.Tip();
             if(!pindexPrev) break;
-
             auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlock(chainparams, coinbaseScript->reserveScript));
             if (!pblocktemplate.get())
             {
@@ -445,7 +441,6 @@ void static BitcoinMiner(const CChainParams& chainparams)
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
-
             LogPrintf("DashMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 

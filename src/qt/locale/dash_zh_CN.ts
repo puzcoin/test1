@@ -1090,6 +1090,161 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>MasternodeList</name>
+    <message>
+        <location filename="../forms/masternodelist.ui" line="+14"/>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>My Masternodes</source>
+        <translation>我的主节点</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.</source>
+        <translation>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your masternode should be running but you still do not see &quot;ENABLED&quot; in &quot;Status&quot; field.</translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Alias</source>
+        <translation>别名</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <location line="+123"/>
+        <source>Address</source>
+        <translation>地址</translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+123"/>
+        <source>Protocol</source>
+        <translation>协议</translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+123"/>
+        <source>Status</source>
+        <translation>状态</translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+123"/>
+        <source>Active</source>
+        <translation>活跃</translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+123"/>
+        <source>Last Seen</source>
+        <translation>上次可见</translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+123"/>
+        <source>Payee</source>
+        <translation>Payee</translation>
+    </message>
+    <message>
+        <location line="-110"/>
+        <source>S&amp;tart alias</source>
+        <translation>S&amp;tart alias</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Start &amp;all</source>
+        <translation>Start &amp;all</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Start &amp;MISSING</source>
+        <translation>Start &amp;MISSING</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Update status</source>
+        <translation>&amp;Update status</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Status will be updated automatically in (sec):</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+122"/>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <location line="-97"/>
+        <source>All Masternodes</source>
+        <translation>All Masternodes</translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <source>Filter List:</source>
+        <translation>Filter List:</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Filter masternode list</source>
+        <translation>Filter masternode list</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Node Count:</source>
+        <translation>Node Count:</translation>
+    </message>
+    <message>
+        <location filename="../masternodelist.cpp" line="+50"/>
+        <source>Start alias</source>
+        <translation>Start alias</translation>
+    </message>
+    <message>
+        <location line="+278"/>
+        <source>Confirm masternode start</source>
+        <translation>Confirm masternode start</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Are you sure you want to start masternode %1?</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Confirm all masternodes start</source>
+        <translation>Confirm all masternodes start</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Are you sure you want to start ALL masternodes?</translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Command is not available right now</source>
+        <translation>Command is not available right now</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You can&apos;t use this command until masternode list is synced</source>
+        <translation>You can&apos;t use this command until masternode list is synced</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Confirm missing masternodes start</source>
+        <translation>Confirm missing masternodes start</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Are you sure you want to start MISSING masternodes?</translation>
+    </message>
+</context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>

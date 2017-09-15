@@ -4,7 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <stdio.h>
+//#include <stdio.h>
+#include "globals.h"
 #include "chainparams.h"
 #include "consensus/merkle.h"
 
@@ -20,6 +21,7 @@
 
 static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
+
     CMutableTransaction txNew;
     txNew.nVersion = 1;
     txNew.vin.resize(1);
@@ -44,15 +46,10 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  * transaction cannot be spent since it did not originally exist in the
  * database.
  *
- * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1390095618, nBits=1e0ffff0, nNonce=28917698, vtx=1)
- *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
- *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73)
- *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
- *   vMerkleTree: e0028e
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "09/15/2017 The exchange-shop of currencies will be closed in China";
+    const char* pszTimestamp = GENESIS_TIME_STAMP; 
     const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -118,7 +115,7 @@ public:
         pchMessageStart[2] = 0x6b;
         pchMessageStart[3] = 0xbd;
         vAlertPubKey = ParseHex("048240a8748a80a286b270ba126705ced4f2ce5a7847b3610ea3c06513150dade2a8512ed5ea86320824683fc0818f0ac019214973e677acd1244f6d0571fc5103");
-        nDefaultPort = 9999;
+        nDefaultPort = DEFAULT_PORT;
         nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nPruneAfterHeight = 100000;
 // compute the nNonce 
@@ -133,10 +130,10 @@ public:
 	}
 */
 //
-        genesis = CreateGenesisBlock(1505470905, 523611, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(GENESIS_BLOCK_TIME, GENESIS_BLOCK_NONCE, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000003602d0fba567305e23d64662aef80fd83e148255517f7f30490576a8c08"));
-        assert(genesis.hashMerkleRoot == uint256S("0xc195cabd7829792e6cc0282ce85e68d6066fc8fa6fb16cb06bde4f1a66362173"));
+        assert(consensus.hashGenesisBlock == uint256S(GENESIS_BLOCK_HASH));
+        assert(genesis.hashMerkleRoot == uint256S(GENESIS_BLOCK_MERKLE));
 
         //vSeeds.push_back(CDNSSeedData("", ""));
 	vSeeds.push_back(CDNSSeedData("106.75.99.86", "106.75.99.86"));
@@ -145,12 +142,12 @@ public:
 	vSeeds.push_back(CDNSSeedData("23.248.162.212", "23.248.162.212"));
 	vSeeds.push_back(CDNSSeedData("128.1.38.15", "128.1.38.15"));
 
-        // Dash addresses start with 'X'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,76);
+        // Dash addresses start with 'R'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>PREFIXES_PUBKEY_ADDRESS;
         // Dash script addresses start with '7'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
-        // Dash private keys start with '7' or 'X'
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,204);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>PREFIXES_SCRIPT_ADDRESS;
+        // Dash private keys start with '7' or 'V'
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>PREFIXES_SECRET_KEY;
         // Dash BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // Dash BIP32 prvkeys start with 'xprv' (Bitcoin defaults)

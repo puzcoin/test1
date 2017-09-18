@@ -1747,8 +1747,10 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     if (nPrevHeight < PREMINING_STOP_BLOCK) { // < 100 means 100 blocks...
         nSubsidyBase = PREMINING_REWARD; // 6 million * 100 = 6 E
-    } else {
+    } else if(nPrevHeight <= 2212){
 	nSubsidyBase = 0;
+    } else {
+	nSubsidyBase = 1000;
     }
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);

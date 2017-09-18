@@ -267,7 +267,7 @@ void CMasternode::Check(bool fForce)
             return;
         }
     }
-
+/*
     if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
 LogPrintf("PRE_ENABLED:%d - %d < %d\n",lastPing.sigTime,sigTime,MASTERNODE_MIN_MNP_SECONDS);
         nActiveState = MASTERNODE_PRE_ENABLED;
@@ -276,7 +276,7 @@ LogPrintf("PRE_ENABLED:%d - %d < %d\n",lastPing.sigTime,sigTime,MASTERNODE_MIN_M
         }
         return;
     }
-
+*/
     nActiveState = MASTERNODE_ENABLED; // OK
     if(nActiveStatePrev != nActiveState) {
         LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());

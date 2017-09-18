@@ -270,6 +270,9 @@ void CMasternode::Check(bool fForce)
 // FIXME by akuma
 // i // this first to see weather the masternode can startup
 /*    if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
+=======
+/*
+    if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
 LogPrintf("PRE_ENABLED:%d - %d < %d\n",lastPing.sigTime,sigTime,MASTERNODE_MIN_MNP_SECONDS);
         nActiveState = MASTERNODE_PRE_ENABLED;
         if(nActiveStatePrev != nActiveState) {

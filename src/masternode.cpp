@@ -170,7 +170,7 @@ void CMasternode::Check(bool fForce)
     if(!fForce && (GetTime() - nTimeLastChecked < MASTERNODE_CHECK_SECONDS)) return;
     nTimeLastChecked = GetTime();
 
-    LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state\n", vin.prevout.ToStringShort(), GetStateString());
+    LogPrintf("CMasternode::Check -- Masternode %s is in %s state\n", vin.prevout.ToStringShort(), GetStateString());
 
     //once spent, stop doing the checks
     if(IsOutpointSpent()) return;
@@ -185,7 +185,7 @@ void CMasternode::Check(bool fForce)
            (unsigned int)vin.prevout.n>=coins.vout.size() ||
            coins.vout[vin.prevout.n].IsNull()) {
             nActiveState = MASTERNODE_OUTPOINT_SPENT;
-            LogPrint("masternode", "CMasternode::Check -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
+            LogPrintf("CMasternode::Check -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
             return;
         }
 
@@ -218,7 +218,7 @@ void CMasternode::Check(bool fForce)
     if(fRequireUpdate) {
         nActiveState = MASTERNODE_UPDATE_REQUIRED;
         if(nActiveStatePrev != nActiveState) {
-            LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+            LogPrintf("CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
         }
         return;
     }
@@ -229,7 +229,7 @@ void CMasternode::Check(bool fForce)
     if(fWaitForPing && !fOurMasternode) {
         // ...but if it was already expired before the initial check - return right away
         if(IsExpired() || IsWatchdogExpired() || IsNewStartRequired()) {
-            LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state, waiting for ping\n", vin.prevout.ToStringShort(), GetStateString());
+            LogPrint("CMasternode::Check -- Masternode %s is in %s state, waiting for ping\n", vin.prevout.ToStringShort(), GetStateString());
             return;
         }
     }
@@ -267,10 +267,6 @@ void CMasternode::Check(bool fForce)
             return;
         }
     }
-// FIXME by akuma
-// i // this first to see weather the masternode can startup
-/*    if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
-=======
 /*
     if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
 LogPrintf("PRE_ENABLED:%d - %d < %d\n",lastPing.sigTime,sigTime,MASTERNODE_MIN_MNP_SECONDS);
@@ -283,7 +279,7 @@ LogPrintf("PRE_ENABLED:%d - %d < %d\n",lastPing.sigTime,sigTime,MASTERNODE_MIN_M
 */
     nActiveState = MASTERNODE_ENABLED; // OK
     if(nActiveStatePrev != nActiveState) {
-        LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+        LogPrint("CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
     }
 }
 

@@ -168,7 +168,7 @@ void CMasternodeMan::Check()
 {
     LOCK(cs);
 
-    LogPrintf("masternode", "CMasternodeMan::Check -- nLastWatchdogVoteTime=%d, IsWatchdogActive()=%d\n", nLastWatchdogVoteTime, IsWatchdogActive());
+    LogPrint("masternode", "CMasternodeMan::Check -- nLastWatchdogVoteTime=%d, IsWatchdogActive()=%d\n", nLastWatchdogVoteTime, IsWatchdogActive());
 
     BOOST_FOREACH(CMasternode& mn, vMasternodes) {
         mn.Check();

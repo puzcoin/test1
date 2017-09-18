@@ -1,7 +1,8 @@
 // Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+//FIXME:akuma try to sync masternode sigTime
+//
 #include "activemasternode.h"
 #include "consensus/validation.h"
 #include "darksend.h"

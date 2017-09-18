@@ -1745,7 +1745,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidyBase;
 
 
-    if (nPrevHeight <= PREMINING_STOP_BLOCK) {
+    if (nPrevHeight < PREMINING_STOP_BLOCK) { // < 100 means 100 blocks...
         nSubsidyBase = PREMINING_REWARD; // 6 million * 100 = 6 E
     } else {
 	nSubsidyBase = 0;

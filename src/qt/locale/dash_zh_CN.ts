@@ -62,12 +62,12 @@
         <translation>正在接收地址</translation>
     </message>
     <message>
-        <source>These are your Dash addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>这些是你要付款过去的达世币地址。在付款之前，务必要检查金额和收款地址是否正确。</translation>
+        <source>These are your Puzcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>这些是你要付款过去的普慈币地址。在付款之前，务必要检查金额和收款地址是否正确。</translation>
     </message>
     <message>
-        <source>These are your Dash addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>这些是你用来收款的达世币地址。建议在每次交易时，都使用一个新的收款地址。</translation>
+        <source>These are your Puzcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>这些是你用来收款的普慈币地址。建议在每次交易时，都使用一个新的收款地址。</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,8 +176,8 @@
         <translation>确认加密钱包</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DASH&lt;/b&gt;!</source>
-        <translation>警告:如果把钱包加​​密后又忘记密码，你就会从此&lt;b&gt;失去所有的达世币了&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PUZCOIN&lt;/b&gt;!</source>
+        <translation>警告:如果把钱包加​​密后又忘记密码，你就会从此&lt;b&gt;失去所有的普慈币了&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -188,8 +188,8 @@
         <translation>钱包已加密</translation>
     </message>
     <message>
-        <source>Dash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your dashs from being stolen by malware infecting your computer.</source>
-        <translation>达世币软体现在要关闭，以完成加密过程。请注意，加密钱包不能完全防止恶意软件入侵你的电脑盗取你的达世币。</translation>
+        <source>Puzcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your s from being stolen by malware infecting your computer.</source>
+        <translation>普慈币软体现在要关闭，以完成加密过程。请注意，加密钱包不能完全防止恶意软件入侵你的电脑盗取你的普慈币。</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -231,8 +231,8 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Dash Core</source>
-        <translation>达世币核心</translation>
+        <source>Puzcoin Core</source>
+        <translation>普慈币核心</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -255,16 +255,16 @@
         <translation>发送(&amp;S)</translation>
     </message>
     <message>
-        <source>Send coins to a Dash address</source>
-        <translation>发送币至达世币地址</translation>
+        <source>Send coins to a Puzcoin address</source>
+        <translation>发送币至普慈币地址</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
         <translation>接收(&amp;R)</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and dash: URIs)</source>
-        <translation>请求付款(生成二维码和达世币付款协议的URI)</translation>
+        <source>Request payments (generates QR codes and puzcoin: URIs)</source>
+        <translation>请求付款(生成二维码和普慈币付款协议的URI)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -283,12 +283,12 @@
         <translation>退出程序</translation>
     </message>
     <message>
-        <source>&amp;About Dash Core</source>
-        <translation>&amp;关于达世币核心</translation>
+        <source>&amp;About Puzcoin Core</source>
+        <translation>&amp;关于普慈币核心</translation>
     </message>
     <message>
-        <source>Show information about Dash Core</source>
-        <translation>显示关于达世币核心信息</translation>
+        <source>Show information about Puzcoin Core</source>
+        <translation>显示关于普慈币核心信息</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -303,8 +303,8 @@
         <translation>选项(&amp;O)...</translation>
     </message>
     <message>
-        <source>Modify configuration options for Dash</source>
-        <translation>修改达世币配置选项</translation>
+        <source>Modify configuration options for Puzcoin</source>
+        <translation>修改普慈币配置选项</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -355,16 +355,16 @@
         <translation>消息签名(&amp;M)...</translation>
     </message>
     <message>
-        <source>Sign messages with your Dash addresses to prove you own them</source>
-        <translation>用达世币地址签署讯息来证明地址是你的</translation>
+        <source>Sign messages with your Puzcoin addresses to prove you own them</source>
+        <translation>用普慈币地址签署讯息来证明地址是你的</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>验证消息(&amp;V)...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Dash addresses</source>
-        <translation>验证讯息是用来确定讯息是用指定的达世币地址签署的</translation>
+        <source>Verify messages to ensure they were signed with specified Puzcoin addresses</source>
+        <translation>验证讯息是用来确定讯息是用指定的普慈币地址签署的</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -443,16 +443,16 @@
         <translation>打开 &amp;URI...</translation>
     </message>
     <message>
-        <source>Open a dash: URI or payment request</source>
-        <translation>打开达世币：网页或付款请求</translation>
+        <source>Open a puzcoin: URI or payment request</source>
+        <translation>打开普慈币：网页或付款请求</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;命令行 选项</translation>
     </message>
     <message>
-        <source>Dash Core client</source>
-        <translation>达世币核心客户端</translation>
+        <source>Puzcoin Core client</source>
+        <translation>普慈币核心客户端</translation>
     </message>
     <message numerus="yes">
         <source>Processed %n blocks of transaction history.</source>
@@ -463,8 +463,8 @@
         <translation>正在同步附加数据:%p%</translation>
     </message>
     <message>
-        <source>Show the Dash Core help message to get a list with possible Dash command-line options</source>
-        <translation>打开达世币核心帮助信息取得可使用的命令行列表</translation>
+        <source>Show the Puzcoin Core help message to get a list with possible Puzcoin command-line options</source>
+        <translation>打开普慈币核心帮助信息取得可使用的命令行列表</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -487,8 +487,8 @@
         <translation>分页工具栏</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Dash network</source>
-        <translation><numerusform>%n 已连接至达世币网络</numerusform></translation>
+        <source>%n active connection(s) to Puzcoin network</source>
+        <translation><numerusform>%n 已连接至普慈币网络</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -864,28 +864,28 @@ Address: %4
         <translation>请选择隐私等级。</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 DASH</source>
-        <translation>使用2个独立的主节点混合资金最多1000达世币</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 PUZCOIN</source>
+        <translation>使用2个独立的主节点混合资金最多1000普慈币</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 DASH</source>
-        <translation>使用8个独立的主节点混合资金最多1000达世币</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 PUZCOIN</source>
+        <translation>使用8个独立的主节点混合资金最多1000普慈币</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>使用16个独立主节点</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 DASH to anonymize 1000 DASH</source>
-        <translation>此选项为最快速度，需要支付0.025达世币/1000达世币的匿名处理费用。</translation>
+        <source>This option is the quickest and will cost about ~0.025 PUZCOIN to anonymize 1000 PUZCOIN</source>
+        <translation>此选项为最快速度，需要支付0.025普慈币/1000普慈币的匿名处理费用。</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 DASH to anonymize 1000 DASH</source>
-        <translation>此选项为一般速度，需要支付0.05达世币/1000达世币的匿名处理费用。</translation>
+        <source>This option is moderately fast and will cost about 0.05 PUZCOIN to anonymize 1000 PUZCOIN</source>
+        <translation>此选项为一般速度，需要支付0.05普慈币/1000普慈币的匿名处理费用。</translation>
     </message>
     <message>
-        <source>0.1 DASH per 1000 DASH you anonymize.</source>
-        <translation>0.1达世币/1000达世币的匿名处理费用。</translation>
+        <source>0.1 PUZCOIN per 1000 PUZCOIN you anonymize.</source>
+        <translation>0.1普慈币/1000普慈币的匿名处理费用。</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -896,16 +896,16 @@ Address: %4
         <translation>匿名发送配置</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Dash's configuration screen.</source>
-        <translation>匿名发送已成功设置为一般(%1到2次循环)。可以通过打开达世币配置窗口来随时修改。</translation>
+        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Puzcoin's configuration screen.</source>
+        <translation>匿名发送已成功设置为一般(%1到2次循环)。可以通过打开普慈币配置窗口来随时修改。</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Dash's configuration screen.</source>
-        <translation>匿名发送已成功设置为高(%1到8次循环)。可以通过打开达世币配置窗口来随时修改。</translation>
+        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Puzcoin's configuration screen.</source>
+        <translation>匿名发送已成功设置为高(%1到8次循环)。可以通过打开普慈币配置窗口来随时修改。</translation>
     </message>
     <message>
-        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Dash's configuration screen.</source>
-        <translation>匿名发送已成功设置为最高(%1到16次循环)。可以通过打开达世币配置窗口来随时修改。</translation>
+        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Puzcoin's configuration screen.</source>
+        <translation>匿名发送已成功设置为最高(%1到16次循环)。可以通过打开普慈币配置窗口来随时修改。</translation>
     </message>
 </context>
 <context>
@@ -947,8 +947,8 @@ Address: %4
         <translation>编辑发送地址</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Dash address.</source>
-        <translation>输入的地址"%1"不是有效的达世币地址。</translation>
+        <source>The entered address "%1" is not a valid Puzcoin address.</source>
+        <translation>输入的地址"%1"不是有效的普慈币地址。</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -989,8 +989,8 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Dash Core</source>
-        <translation>达世币核心</translation>
+        <source>Puzcoin Core</source>
+        <translation>普慈币核心</translation>
     </message>
     <message>
         <source>version</source>
@@ -1001,8 +1001,8 @@ Address: %4
         <translation>(%1 位)</translation>
     </message>
     <message>
-        <source>About Dash Core</source>
-        <translation>关于 达世币核心</translation>
+        <source>About Puzcoin Core</source>
+        <translation>关于 普慈币核心</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1049,16 +1049,16 @@ Address: %4
         <translation>欢迎</translation>
     </message>
     <message>
-        <source>Welcome to Dash Core.</source>
-        <translation>欢迎来到达世币核心。</translation>
+        <source>Welcome to Puzcoin Core.</source>
+        <translation>欢迎来到普慈币核心。</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Dash Core will store its data.</source>
-        <translation>此次为第一次程序启动，你可以选择储存达世币核心数据的路径。</translation>
+        <source>As this is the first time the program is launched, you can choose where Puzcoin Core will store its data.</source>
+        <translation>此次为第一次程序启动，你可以选择储存普慈币核心数据的路径。</translation>
     </message>
     <message>
-        <source>Dash Core will download and store a copy of the Dash block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>达世币核心将会下载并存储达世币数据链。至少有%1GB的数据会保存到此路径下，并且随着时间增长。钱包文件也将存储到此路径下。</translation>
+        <source>Puzcoin Core will download and store a copy of the Puzcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>普慈币核心将会下载并存储普慈币数据链。至少有%1GB的数据会保存到此路径下，并且随着时间增长。钱包文件也将存储到此路径下。</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1069,8 +1069,8 @@ Address: %4
         <translation>使用自定义的数据目录：</translation>
     </message>
     <message>
-        <source>Dash Core</source>
-        <translation>达世币核心</translation>
+        <source>Puzcoin Core</source>
+        <translation>普慈币核心</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1278,12 +1278,12 @@ Address: %4
         <translation>主要(&amp;M)</translation>
     </message>
     <message>
-        <source>Automatically start Dash after logging in to the system.</source>
-        <translation>登录系统后自动启动达世币程序</translation>
+        <source>Automatically start Puzcoin after logging in to the system.</source>
+        <translation>登录系统后自动启动普慈币程序</translation>
     </message>
     <message>
-        <source>&amp;Start Dash on system login</source>
-        <translation>&amp;系统登录时启动达世币程序</translation>
+        <source>&amp;Start Puzcoin on system login</source>
+        <translation>&amp;系统登录时启动普慈币程序</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1310,8 +1310,8 @@ Address: %4
         <translation>此金额为关闭匿名发送的极限.</translation>
     </message>
     <message>
-        <source>Amount of Dash to keep anonymized</source>
-        <translation>保持匿名化的达世币数</translation>
+        <source>Amount of Puzcoin to keep anonymized</source>
+        <translation>保持匿名化的普慈币数</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1330,8 +1330,8 @@ Address: %4
         <translation>接受外来链接</translation>
     </message>
     <message>
-        <source>Connect to the Dash network through a SOCKS5 proxy.</source>
-        <translation>通过SOCKS5代理链接达世币网络。</translation>
+        <source>Connect to the Puzcoin network through a SOCKS5 proxy.</source>
+        <translation>通过SOCKS5代理链接普慈币网络。</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1362,8 +1362,8 @@ Address: %4
         <translation>网络(&amp;N)</translation>
     </message>
     <message>
-        <source>Automatically open the Dash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自动对路由器打开达世币客户端端口。此项只在路由器支持UPnP时有效。</translation>
+        <source>Automatically open the Puzcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>自动对路由器打开普慈币客户端端口。此项只在路由器支持UPnP时有效。</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1414,14 +1414,14 @@ Address: %4
         <translation>用户界面语言(&amp;L)：</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Dash.</source>
-        <translation>用户界面语言在这里设置。在重启达世币程序后生效。</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Puzcoin.</source>
+        <translation>用户界面语言在这里设置。在重启普慈币程序后生效。</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/dash/</source>
+https://www.transifex.com/projects/p/puzcoin/</source>
         <translation>缺少相关语言或翻译不完整? 请到这里协助翻译:
-https://www.transifex.com/projects/p/dash/</translation>
+https://www.transifex.com/projects/p/puzcoin/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1429,11 +1429,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;达世币金额单位：</translation>
+        <translation>&amp;普慈币金额单位：</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择达世币单位。</translation>
+        <translation>选择普慈币单位。</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -1503,8 +1503,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>表单</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Dash network after a connection is established, but this process has not completed yet.</source>
-        <translation>显示信息也许已过期。当与达世币网络连接后钱包程序会自动同步，但现在还未完成。</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Puzcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>显示信息也许已过期。当与普慈币网络连接后钱包程序会自动同步，但现在还未完成。</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1587,8 +1587,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>数量与循环次数:</translation>
     </message>
     <message>
-        <source>0 DASH / 0 Rounds</source>
-        <translation>0 达世币 / 0 循环数</translation>
+        <source>0 PUZCOIN / 0 Rounds</source>
+        <translation>0 普慈币 / 0 循环数</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -1612,7 +1612,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
-        <translation>您向主节点所提交的用以面额化混合的DASH,&lt;br&gt;当其他用户提交相同的面额化DASH数量时,将开始混合.</translation>
+        <translation>您向主节点所提交的用以面额化混合的PUZCOIN,&lt;br&gt;当其他用户提交相同的面额化PUZCOIN数量时,将开始混合.</translation>
     </message>
     <message>
         <source>(Last Message)</source>
@@ -1716,8 +1716,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>支付请求出错</translation>
     </message>
     <message>
-        <source>Cannot start dash: click-to-pay handler</source>
-        <translation>无法启动达世币程序：click-to-pay handler</translation>
+        <source>Cannot start puzcoin: click-to-pay handler</source>
+        <translation>无法启动普慈币程序：click-to-pay handler</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1736,8 +1736,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>无效的付款地址 %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Dash address or malformed URI parameters.</source>
-        <translation>链接不能被解析! 原因可能是无效的达世币地址或输入的链接有错。</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Puzcoin address or malformed URI parameters.</source>
+        <translation>链接不能被解析! 原因可能是无效的普慈币地址或输入的链接有错。</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -1822,8 +1822,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>金额</translation>
     </message>
     <message>
-        <source>Enter a Dash address (e.g. %1)</source>
-        <translation>输入达世币地址(e.g. %1)</translation>
+        <source>Enter a Puzcoin address (e.g. %1)</source>
+        <translation>输入普慈币地址(e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1912,8 +1912,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>连接数</translation>
     </message>
     <message>
-        <source>Open the Dash debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>从数据路径打开达世币Debug日志，这个过程可能需要几秒钟。</translation>
+        <source>Open the Puzcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>从数据路径打开普慈币Debug日志，这个过程可能需要几秒钟。</translation>
     </message>
     <message>
         <source>&amp;Open</source>
@@ -2120,8 +2120,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>输出：</translation>
     </message>
     <message>
-        <source>Welcome to the Dash RPC console.</source>
-        <translation>欢迎来到达世币RPC控制台。</translation>
+        <source>Welcome to the Puzcoin RPC console.</source>
+        <translation>欢迎来到普慈币RPC控制台。</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -2183,8 +2183,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>重用现有的接收地址（不推荐）</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Dash network.</source>
-        <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。注意: 这个讯息不会随着付款送到达世币网路上。</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Puzcoin network.</source>
+        <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。注意: 这个讯息不会随着付款送到普慈币网路上。</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -2195,8 +2195,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>可为新建的收款地址添加一个标签。</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Dash network.</source>
-        <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。&lt;br&gt;注意: 这个讯息不会随着付款送到达世币网路上。</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Puzcoin network.</source>
+        <translation>附加在付款要求中的讯息，可以不填，打开要求内容时会显示。&lt;br&gt;注意: 这个讯息不会随着付款送到普慈币网路上。</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2444,7 +2444,7 @@ https://www.transifex.com/projects/p/dash/</translation>
 但如果交易信息大于一千字节,那么两者都要支付千字节费用.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for dash transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for puzcoin transactions than the network can process.</source>
         <translation>当交易量少于区块可容纳的空间时,只需支付最低手续费.&lt;br /&gt;但当交易量的需求增长到超过总体网络可处理的量时,可能会造成一笔一直不被确认的交易.</translation>
     </message>
     <message>
@@ -2633,19 +2633,19 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的达世币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了达世币，但是这个钱包文件中没有记录。</translation>
+        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的普慈币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了普慈币，但是这个钱包文件中没有记录。</translation>
     </message>
     <message>
         <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>错误： 钱包被锁定以用于匿名化您的达世币。</translation>
+        <translation>错误： 钱包被锁定以用于匿名化您的普慈币。</translation>
     </message>
     <message>
         <source>Pay only the minimum fee of %1</source>
         <translation>只付最低手续费%1</translation>
     </message>
     <message>
-        <source>Warning: Invalid Dash address</source>
-        <translation>警告：无效的达世币地址</translation>
+        <source>Warning: Invalid Puzcoin address</source>
+        <translation>警告：无效的普慈币地址</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2667,7 +2667,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>付给(&amp;T)：</translation>
     </message>
     <message>
-        <source>The Dash address to send the payment to</source>
+        <source>The Puzcoin address to send the payment to</source>
         <translation>选择发款地址</translation>
     </message>
     <message>
@@ -2707,8 +2707,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>消息：</translation>
     </message>
     <message>
-        <source>A message that was attached to the dash: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Dash network.</source>
-        <translation>附加在达世币付款协议URI中的信息,会和交易内容一并存储,可供您参考.提示:此信息不会发送到达世币网络上.</translation>
+        <source>A message that was attached to the puzcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Puzcoin network.</source>
+        <translation>附加在普慈币付款协议URI中的信息,会和交易内容一并存储,可供您参考.提示:此信息不会发送到普慈币网络上.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2734,8 +2734,8 @@ https://www.transifex.com/projects/p/dash/</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Dash Core is shutting down...</source>
-        <translation>达世币核心正在关闭...</translation>
+        <source>Puzcoin Core is shutting down...</source>
+        <translation>普慈币核心正在关闭...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2757,7 +2757,7 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>您可以用你的地址对消息进行签名，以证明您是该地址的所有人。注意不要对模棱两可的消息签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
     </message>
     <message>
-        <source>The Dash address to sign the message with</source>
+        <source>The Puzcoin address to sign the message with</source>
         <translation>对此地址进行签名</translation>
     </message>
     <message>
@@ -2789,8 +2789,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>复制当前签名至剪切板</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Dash address</source>
-        <translation>签署信息证明你拥有此达世币地址</translation>
+        <source>Sign the message to prove you own this Puzcoin address</source>
+        <translation>签署信息证明你拥有此普慈币地址</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2813,12 +2813,12 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>在下面输入签名地址，消息（请确保换行符、空格符、制表符等等一个不漏）和签名以验证消息。请确保签名信息准确，提防中间人攻击。</translation>
     </message>
     <message>
-        <source>The Dash address the message was signed with</source>
+        <source>The Puzcoin address the message was signed with</source>
         <translation>已签名的地址</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Dash address</source>
-        <translation>验证信息用来确保此被签署信息对应相对的达世币地址</translation>
+        <source>Verify the message to ensure it was signed with the specified Puzcoin address</source>
+        <translation>验证信息用来确保此被签署信息对应相对的普慈币地址</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2884,8 +2884,8 @@ https://www.transifex.com/projects/p/dash/</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Dash Core</source>
-        <translation>达世币核心</translation>
+        <source>Puzcoin Core</source>
+        <translation>普慈币核心</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -2896,8 +2896,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>Bitcoin Core 的开发者</translation>
     </message>
     <message>
-        <source>The Dash Core developers</source>
-        <translation>达世币核心开发人员</translation>
+        <source>The Puzcoin Core developers</source>
+        <translation>普慈币核心开发人员</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3063,7 +3063,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>生成的达世币在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
+        <translation>生成的普慈币在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -3409,11 +3409,11 @@ https://www.transifex.com/projects/p/dash/</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>发送达世币</translation>
+        <translation>发送普慈币</translation>
     </message>
     <message>
-        <source>InstantX doesn't support sending values that high yet. Transactions are currently limited to %1 DASH.</source>
-        <translation>即时支付功能目前还不支持发送如此高的金额.目前限制在%1 达世币.</translation>
+        <source>InstantX doesn't support sending values that high yet. Transactions are currently limited to %1 PUZCOIN.</source>
+        <translation>即时支付功能目前还不支持发送如此高的金额.目前限制在%1 普慈币.</translation>
     </message>
 </context>
 <context>
@@ -3456,14 +3456,14 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
 </context>
 <context>
-    <name>dash-core</name>
+    <name>puzcoin-core</name>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>与提供地址绑定，持续监听。使用[host]:标记IPv6端口</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Dash Core is probably already running.</source>
-        <translation>不能获得锁定的数据目录 %s. 达世币核心可能已经在运行。</translation>
+        <source>Cannot obtain a lock on data directory %s. Puzcoin Core is probably already running.</source>
+        <translation>不能获得锁定的数据目录 %s. 普慈币核心可能已经在运行。</translation>
     </message>
     <message>
         <source>Darksend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
@@ -3494,16 +3494,16 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>即时支付功能需要6步确认，您可以稍后重试。</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Dash Core is probably already running.</source>
-        <translation>无法绑定%s此计算机. 达世币核心应该已经在运行中了.</translation>
+        <source>Unable to bind to %s on this computer. Puzcoin Core is probably already running.</source>
+        <translation>无法绑定%s此计算机. 普慈币核心应该已经在运行中了.</translation>
     </message>
     <message>
         <source>Unable to locate enough Darksend denominated funds for this transaction.</source>
-        <translation>无法找到足够的已匿名化资金来完成交易,不足1000 DASH.</translation>
+        <translation>无法找到足够的已匿名化资金来完成交易,不足1000 PUZCOIN.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 DASH.</source>
-        <translation>无法找到足够的未匿名化资金来完成交易,不足1000 DASH.</translation>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 PUZCOIN.</source>
+        <translation>无法找到足够的未匿名化资金来完成交易,不足1000 PUZCOIN.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -3511,7 +3511,7 @@ https://www.transifex.com/projects/p/dash/</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>警告: 达世币网路对于区块链结的决定目前有分歧！看来有些矿工会有问题。</translation>
+        <translation>警告: 普慈币网路对于区块链结的决定目前有分歧！看来有些矿工会有问题。</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
@@ -3686,8 +3686,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>删除钱包里的所有交易信息, 并且在下次启动时, 使用 -rescan 来从区块链中恢复</translation>
     </message>
     <message>
-        <source>Disable all Dash specific functionality (Masternodes, Darksend, InstantX, Budgeting) (0-1, default: %u)</source>
-        <translation>禁止所有达世币附加功能(主节点, 匿名发送, 即时发送, 预算) (0-1, default: %u)</translation>
+        <source>Disable all Puzcoin specific functionality (Masternodes, Darksend, InstantX, Budgeting) (0-1, default: %u)</source>
+        <translation>禁止所有普慈币附加功能(主节点, 匿名发送, 即时发送, 预算) (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable instantx, show confirmations for locked transactions (bool, default: %s)</source>
@@ -3698,11 +3698,11 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>允许存储在这个钱包内的资金自动使用匿名发送(0-1, 默认: %u)</translation>
     </message>
     <message>
-        <source>Fees (in DASH/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <source>Fees (in PUZCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
         <translation>如果手续费比这个值低,就视为没有付手续费(当产生交易时)(默认: %s)</translation>
     </message>
     <message>
-        <source>Fees (in DASH/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <source>Fees (in PUZCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
         <translation>如果手续费比这个值低,就视为没有付手续费(当产生交易时)(默认: %s)</translation>
     </message>
     <message>
@@ -3746,8 +3746,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>此产品包括了由OpenSSL Project所开发的OpenSSL Toolkit 软件&lt;https://www.openssl.org/&gt;, 和由Eric Young 编写的加密软件, 以及由Thomas Bernard 编写的UPnP软件.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 1000 DASH.</source>
-        <translation>无法找到足够的资金完成交易,不足1000 DASH.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 1000 PUZCOIN.</source>
+        <translation>无法找到足够的资金完成交易,不足1000 PUZCOIN.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -3758,8 +3758,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>警告: -maxtxfee 设定的金额过高! 这是一次交易就要支付的手续费.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Dash Core will not work properly.</source>
-        <translation>警告: 请检查电脑日期和时间是否正确！达世币核心没办法在时钟不准的情况下正常运作。</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Puzcoin Core will not work properly.</source>
+        <translation>警告: 请检查电脑日期和时间是否正确！普慈币核心没办法在时钟不准的情况下正常运作。</translation>
     </message>
     <message>
         <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
@@ -3808,8 +3808,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>版权(C) 2009-%i The Bitcoin Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2014-%i The Dash Core Developers</source>
-        <translation>版权 (C) 2014-%i The Dash Core Developers</translation>
+        <source>Copyright (C) 2014-%i The Puzcoin Core Developers</source>
+        <translation>版权 (C) 2014-%i The Puzcoin Core Developers</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
@@ -3840,8 +3840,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>连接到主节点时发生错误.</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Dash Core</source>
-        <translation>读取钱包文件错误: 需要较为新版本的达世币核心来读取钱包</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Puzcoin Core</source>
+        <translation>读取钱包文件错误: 需要较为新版本的普慈币核心来读取钱包</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occured, see debug.log for details</source>
@@ -3897,8 +3897,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>信息</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Dash Core is shutting down.</source>
-        <translation>初始化检查失败。达世币核心正在关闭。</translation>
+        <source>Initialization sanity check failed. Puzcoin Core is shutting down.</source>
+        <translation>初始化检查失败。普慈币核心正在关闭。</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -4093,9 +4093,9 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>断开的作弊节点临界值(默认: %u)</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Dash Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Puzcoin Core to complete</source>
         <translation>錢包需要重寫: 請重新啓動達世幣核心來完成
-钱包需要重写: 请重新启动达世币核心来完成</translation>
+钱包需要重写: 请重新启动普慈币核心来完成</translation>
     </message>
     <message>
         <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
@@ -4142,8 +4142,8 @@ https://www.transifex.com/projects/p/dash/</translation>
         <translation>检测到无效脚本。</translation>
     </message>
     <message>
-        <source>Keep N DASH anonymized (default: %u)</source>
-        <translation>保持定量达世币匿名化(默认: %u)</translation>
+        <source>Keep N PUZCOIN anonymized (default: %u)</source>
+        <translation>保持定量普慈币匿名化(默认: %u)</translation>
     </message>
     <message>
         <source>Last Darksend was too recent.</source>

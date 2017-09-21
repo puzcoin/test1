@@ -135,7 +135,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S(GENESIS_BLOCK_HASH));
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_BLOCK_MERKLE));
 
-        //vSeeds.push_back(CDNSSeedData("", ""));
+        vSeeds.push_back(CDNSSeedData("23.91.97.27", "23.91.97.27"));
 	vSeeds.push_back(CDNSSeedData("106.75.99.86", "106.75.99.86"));
 	vSeeds.push_back(CDNSSeedData("116.62.128.76", "116.62.128.76"));
 	vSeeds.push_back(CDNSSeedData("118.193.29.122", "118.193.29.122"));

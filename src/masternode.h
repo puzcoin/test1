@@ -58,6 +58,7 @@ public:
     void swap(CMasternodePing& first, CMasternodePing& second) // nothrow
     {
         // enable ADL (not necessary in our case, but good practice)
+LogPrintf("MMMNNN:swap1\n");
         using std::swap;
 
         // by swapping the members of two classes,
@@ -213,6 +214,7 @@ public:
     void swap(CMasternode& first, CMasternode& second) // nothrow
     {
         // enable ADL (not necessary in our case, but good practice)
+LogPrintf("MMMNNN:swap2\n");
         using std::swap;
 
         // by swapping the members of two classes,

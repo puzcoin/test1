@@ -267,7 +267,6 @@ void CMasternode::Check(bool fForce)
             return;
         }
     }
-/*
     if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
         nActiveState = MASTERNODE_PRE_ENABLED;
         if(nActiveStatePrev != nActiveState) {
@@ -275,7 +274,6 @@ void CMasternode::Check(bool fForce)
         }
         return;
     }
-*/
     nActiveState = MASTERNODE_ENABLED; // OK
     if(nActiveStatePrev != nActiveState) {
         LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
@@ -484,6 +482,7 @@ bool CMasternodeBroadcast::Create(CTxIn txin, CService service, CKey keyCollater
 
 bool CMasternodeBroadcast::SimpleCheck(int& nDos)
 {
+LogPrintf("MMMNNN:CMasternodeBroadcast::SimpleCheck\n");
     nDos = 0;
 
     // make sure addr is valid

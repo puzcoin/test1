@@ -1,4 +1,4 @@
-bin_PROGRAMS += qt/dash-qt
+bin_PROGRAMS += qt/puzcoin-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
 # dash qt core #

@@ -1741,16 +1741,31 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    double dDiff;
     CAmount nSubsidyBase;
 
 
     if (nPrevHeight < PREMINING_STOP_BLOCK) { // < 100 means 100 blocks...
         nSubsidyBase = PREMINING_REWARD; // 6 million * 100 = 6 E
-    } else if(nPrevHeight <= 2212){
-	nSubsidyBase = 0;
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 1*MINING_REDUSE_BLOCKS){
+	nSubsidyBase = MINING_REWARD-MINING_REDUSE*(1-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 2*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(2-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 3*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(3-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 4*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(4-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 5*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(5-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 6*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(6-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 7*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(7-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 8*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(8-1);
+    } else if(nPrevHeight < PREMINING_STOP_BLOCK + 9*MINING_REDUSE_BLOCKS){
+        nSubsidyBase = MINING_REWARD-MINING_REDUSE*(9-1);
     } else {
-	nSubsidyBase = 1000;
+	nSubsidyBase = 0;
     }
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);

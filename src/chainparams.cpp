@@ -139,7 +139,8 @@ public:
 	vSeeds.push_back(CDNSSeedData("106.75.99.86", "106.75.99.86"));//ucloud-bj-ubuntu
 	vSeeds.push_back(CDNSSeedData("23.248.162.212", "23.248.162.212"));//ucloud-hk-windows
 	vSeeds.push_back(CDNSSeedData("107.150.124.159", "107.150.124.159"));//ucloud-hk-windows-orange
-	vSeeds.push_back(CDNSSeedData("nodelb1.puzcoin.com","nodelb1.puzcoin.com"));//node-slb-1
+	vSeeds.push_back(CDNSSeedData("nodelb1.puzcoin.com","nodelb1.puzcoin.com"));//node-slb-1-hk
+	vSeeds.push_back(CDNSSeedData("nodelb2.puzcoin.com","nodelb2.puzcoin.com"));//node-slb-2-europe
 
         // Dash addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>PREFIXES_PUBKEY_ADDRESS;

@@ -43,6 +43,7 @@ CMasternodeIndex::CMasternodeIndex()
 
 bool CMasternodeIndex::Get(int nIndex, CTxIn& vinMasternode) const
 {
+LogPrintf("CMasternodeIndex::Get\n");
     rindex_m_cit it = mapReverseIndex.find(nIndex);
     if(it == mapReverseIndex.end()) {
         return false;
@@ -53,6 +54,7 @@ bool CMasternodeIndex::Get(int nIndex, CTxIn& vinMasternode) const
 
 int CMasternodeIndex::GetMasternodeIndex(const CTxIn& vinMasternode) const
 {
+LogPrintf("CMasternodeIndex::GetMasternodeIndex\n");
     index_m_cit it = mapIndex.find(vinMasternode);
     if(it == mapIndex.end()) {
         return -1;
@@ -62,6 +64,7 @@ int CMasternodeIndex::GetMasternodeIndex(const CTxIn& vinMasternode) const
 
 void CMasternodeIndex::AddMasternodeVIN(const CTxIn& vinMasternode)
 {
+LogPrintf("CMasternodeIndex::AddMasternodeVIN\n");
     index_m_it it = mapIndex.find(vinMasternode);
     if(it != mapIndex.end()) {
         return;
@@ -74,12 +77,12 @@ void CMasternodeIndex::AddMasternodeVIN(const CTxIn& vinMasternode)
 
 void CMasternodeIndex::Clear()
 {
+LogPrintf("CMasternodeIndex::Clear\n");
     mapIndex.clear();
     mapReverseIndex.clear();
     nSize = 0;
 }
 struct CompareByAddr
-
 {
     bool operator()(const CMasternode* t1,
                     const CMasternode* t2) const
@@ -90,6 +93,7 @@ struct CompareByAddr
 
 void CMasternodeIndex::RebuildIndex()
 {
+LogPrintf("CMasternodeIndex::RebuildIndex\n");
     nSize = mapIndex.size();
     for(index_m_it it = mapIndex.begin(); it != mapIndex.end(); ++it) {
         mapReverseIndex[it->second] = it->first;
@@ -121,6 +125,7 @@ CMasternodeMan::CMasternodeMan()
 
 bool CMasternodeMan::Add(CMasternode &mn)
 {
+LogPrintf("CMasternodeMan::Add\n");
     LOCK(cs);
 
     CMasternode *pmn = Find(mn.vin);
@@ -137,6 +142,7 @@ bool CMasternodeMan::Add(CMasternode &mn)
 
 void CMasternodeMan::AskForMN(CNode* pnode, const CTxIn &vin)
 {
+LogPrintf("CMasternodeMan::AskForMN\n");
     if(!pnode) return;
 
     LOCK(cs);
@@ -166,6 +172,7 @@ void CMasternodeMan::AskForMN(CNode* pnode, const CTxIn &vin)
 
 void CMasternodeMan::Check()
 {
+LogPrintf("Check\n");
     LOCK(cs);
 
     LogPrint("masternode", "CMasternodeMan::Check -- nLastWatchdogVoteTime=%d, IsWatchdogActive()=%d\n", nLastWatchdogVoteTime, IsWatchdogActive());
@@ -177,6 +184,7 @@ void CMasternodeMan::Check()
 
 void CMasternodeMan::CheckAndRemove()
 {
+LogPrintf("CMasternodeMan::CheckAndRemove\n");
     if(!masternodeSync.IsMasternodeListSynced()) return;
 
     LogPrintf("CMasternodeMan::CheckAndRemove\n");
@@ -365,6 +373,7 @@ void CMasternodeMan::CheckAndRemove()
 
 void CMasternodeMan::Clear()
 {
+LogPrintf("CMasternodeMan::Clear\n");
     LOCK(cs);
     vMasternodes.clear();
     mAskedUsForMasternodeList.clear();
@@ -380,6 +389,7 @@ void CMasternodeMan::Clear()
 
 int CMasternodeMan::CountMasternodes(int nProtocolVersion)
 {
+LogPrintf("CMasternodeMan::CountMasternodes\n");
     LOCK(cs);
     int nCount = 0;
     nProtocolVersion = nProtocolVersion == -1 ? mnpayments.GetMinMasternodePaymentsProto() : nProtocolVersion;
@@ -394,6 +404,7 @@ int CMasternodeMan::CountMasternodes(int nProtocolVersion)
 
 int CMasternodeMan::CountEnabled(int nProtocolVersion)
 {
+LogPrintf("CMasternodeMan::CountEnabled\n");
     LOCK(cs);
     int nCount = 0;
     nProtocolVersion = nProtocolVersion == -1 ? mnpayments.GetMinMasternodePaymentsProto() : nProtocolVersion;
@@ -425,6 +436,7 @@ int CMasternodeMan::CountByIP(int nNetworkType)
 
 void CMasternodeMan::DsegUpdate(CNode* pnode)
 {
+LogPrintf("CMasternodeMan::DsegUpdate\n");
     LOCK(cs);
 
     if(Params().NetworkIDString() == CBaseChainParams::MAIN) {
@@ -446,6 +458,7 @@ void CMasternodeMan::DsegUpdate(CNode* pnode)
 
 CMasternode* CMasternodeMan::Find(const CScript &payee)
 {
+LogPrintf("CMasternodeMan::Find payee\n");
     LOCK(cs);
 
     BOOST_FOREACH(CMasternode& mn, vMasternodes)
@@ -458,6 +471,7 @@ CMasternode* CMasternodeMan::Find(const CScript &payee)
 
 CMasternode* CMasternodeMan::Find(const CTxIn &vin)
 {
+LogPrintf("CMasternodeMan::Find vin\n");
     LOCK(cs);
 
     BOOST_FOREACH(CMasternode& mn, vMasternodes)
@@ -470,6 +484,7 @@ CMasternode* CMasternodeMan::Find(const CTxIn &vin)
 
 CMasternode* CMasternodeMan::Find(const CPubKey &pubKeyMasternode)
 {
+LogPrintf("CMasternodeMan::Find pubkey\n");
     LOCK(cs);
 
     BOOST_FOREACH(CMasternode& mn, vMasternodes)
@@ -482,6 +497,7 @@ CMasternode* CMasternodeMan::Find(const CPubKey &pubKeyMasternode)
 
 bool CMasternodeMan::Get(const CPubKey& pubKeyMasternode, CMasternode& masternode)
 {
+LogPrintf("CMasternodeMan::Get pubkey\n");
     // Theses mutexes are recursive so double locking by the same thread is safe.
     LOCK(cs);
     CMasternode* pMN = Find(pubKeyMasternode);
@@ -494,6 +510,7 @@ bool CMasternodeMan::Get(const CPubKey& pubKeyMasternode, CMasternode& masternod
 
 bool CMasternodeMan::Get(const CTxIn& vin, CMasternode& masternode)
 {
+LogPrintf("CMasternodeMan::Get vin\n");
     // Theses mutexes are recursive so double locking by the same thread is safe.
     LOCK(cs);
     CMasternode* pMN = Find(vin);
@@ -506,6 +523,7 @@ bool CMasternodeMan::Get(const CTxIn& vin, CMasternode& masternode)
 
 masternode_info_t CMasternodeMan::GetMasternodeInfo(const CTxIn& vin)
 {
+LogPrintf("CMasternodeMan::GetMasternodeInfo vin\n");
     masternode_info_t info;
     LOCK(cs);
     CMasternode* pMN = Find(vin);
@@ -518,6 +536,7 @@ masternode_info_t CMasternodeMan::GetMasternodeInfo(const CTxIn& vin)
 
 masternode_info_t CMasternodeMan::GetMasternodeInfo(const CPubKey& pubKeyMasternode)
 {
+LogPrintf("CMasternodeMan::GetMasternodeInfo pubkey\n");
     masternode_info_t info;
     LOCK(cs);
     CMasternode* pMN = Find(pubKeyMasternode);
@@ -530,6 +549,7 @@ masternode_info_t CMasternodeMan::GetMasternodeInfo(const CPubKey& pubKeyMastern
 
 bool CMasternodeMan::Has(const CTxIn& vin)
 {
+LogPrintf("CMasternodeMan::Has\n");
     LOCK(cs);
     CMasternode* pMN = Find(vin);
     return (pMN != NULL);

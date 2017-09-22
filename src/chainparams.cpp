@@ -135,12 +135,11 @@ public:
         assert(consensus.hashGenesisBlock == uint256S(GENESIS_BLOCK_HASH));
         assert(genesis.hashMerkleRoot == uint256S(GENESIS_BLOCK_MERKLE));
 
-        vSeeds.push_back(CDNSSeedData("23.91.97.27", "23.91.97.27"));
-	vSeeds.push_back(CDNSSeedData("106.75.99.86", "106.75.99.86"));
-	vSeeds.push_back(CDNSSeedData("116.62.128.76", "116.62.128.76"));
-	vSeeds.push_back(CDNSSeedData("118.193.29.122", "118.193.29.122"));
-	vSeeds.push_back(CDNSSeedData("23.248.162.212", "23.248.162.212"));
-	vSeeds.push_back(CDNSSeedData("128.1.38.15", "128.1.38.15"));
+        vSeeds.push_back(CDNSSeedData("23.91.97.27", "23.91.97.27"));//ucloud-hk-ubuntu
+	vSeeds.push_back(CDNSSeedData("106.75.99.86", "106.75.99.86"));//ucloud-bj-ubuntu
+	vSeeds.push_back(CDNSSeedData("23.248.162.212", "23.248.162.212"));//ucloud-hk-windows
+	vSeeds.push_back(CDNSSeedData("107.150.124.159", "107.150.124.159"));//ucloud-hk-windows-orange
+	vSeeds.push_back(CDNSSeedData("nodelb1.puzcoin.com","nodelb1.puzcoin.com"));//node-slb-1
 
         // Dash addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>PREFIXES_PUBKEY_ADDRESS;

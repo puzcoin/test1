@@ -267,7 +267,8 @@ void CMasternode::Check(bool fForce)
             return;
         }
     }
-    if(lastPing.sigTime - sigTime < MASTERNODE_MIN_MNP_SECONDS) {
+LogPrintf("MMMNNNN:CMasternode::Check -- Masternode %s is in %s state now lastPing.sigTime=%d,sigTime=%d,lastPing.sigTime - sigTime=%d\n", vin.prevout.ToStringShort(), GetStateString(),lastPing.sigTime,sigTime,lastPing.sigTime - sigTime);
+    if(lastPing.sigTime - sigTime < 0) {//MASTERNODE_MIN_MNP_SECONDS) {
         nActiveState = MASTERNODE_PRE_ENABLED;
         if(nActiveStatePrev != nActiveState) {
             LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
@@ -453,6 +454,7 @@ bool CMasternodeBroadcast::Create(CTxIn txin, CService service, CKey keyCollater
 
 
     CMasternodePing mnp(txin);
+LogPrintf("MMMNNNN:before Sign\n");
     if(!mnp.Sign(keyMasternodeNew, pubKeyMasternodeNew)) {
         strErrorRet = strprintf("Failed to sign ping, masternode=%s", txin.prevout.ToStringShort());
         LogPrintf("CMasternodeBroadcast::Create -- %s\n", strErrorRet);
@@ -674,6 +676,8 @@ bool CMasternodeBroadcast::Sign(CKey& keyCollateralAddress)
     std::string strMessage;
 
     sigTime = GetAdjustedTime();
+//LogPrintf("MMMNNNN:CMasternodePing::Sign2,%d\n",this->sigTime);
+
 
     strMessage = addr.ToString(false) + boost::lexical_cast<std::string>(sigTime) +
                     pubKeyCollateralAddress.GetID().ToString() + pubKeyMasternode.GetID().ToString() +
@@ -736,6 +740,7 @@ bool CMasternodePing::Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode)
     std::string strMasterNodeSignMessage;
 
     sigTime = GetAdjustedTime();
+//LogPrintf("MMMNNNN:CMasternodePing::Sign1,%d\n",this->sigTime);
     std::string strMessage = vin.ToString() + blockHash.ToString() + boost::lexical_cast<std::string>(sigTime);
 
     if(!darkSendSigner.SignMessage(strMessage, vchSig, keyMasternode)) {

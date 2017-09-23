@@ -108,6 +108,7 @@ bool CActiveMasternode::SendMasternodePing()
     }
 
     CMasternodePing mnp(vin);
+LogPrintf("MMMNNNN:Sign before\n");
     if(!mnp.Sign(keyMasternode, pubKeyMasternode)) {
         LogPrintf("CActiveMasternode::SendMasternodePing -- ERROR: Couldn't sign Masternode Ping\n");
         return false;

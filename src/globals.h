@@ -16,5 +16,7 @@
 #define MINING_REDUSE		300
 #define MINING_REDUSE_BLOCKS	50000
 #define MASTERNODE_COIN_NEEDED	100000
+#define COIN_CONF_FILENAME	"puzcoin.conf"
+#define MASTERNODE_CONF_FILENAME	"masternode.conf"
 #endif
 

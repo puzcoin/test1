@@ -1,4 +1,4 @@
-
+#include "globals.h"
 #include "netbase.h"
 #include "masternodeconfig.h"
 #include "util.h"
@@ -48,7 +48,7 @@ bool CMasternodeConfig::read(std::string& strErr) {
             iss.str(line);
             iss.clear();
             if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
-                strErr = _("Could not parse masternode.conf") + "\n" +
+                strErr = _("Could not parse "MASTERNODE_CONF_FILENAME) + "\n" +
                         strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"";
                 streamConfig.close();
                 return false;
@@ -67,7 +67,7 @@ bool CMasternodeConfig::read(std::string& strErr) {
         int mainnetDefaultPort = Params(CBaseChainParams::MAIN).GetDefaultPort();
         if(Params().NetworkIDString() == CBaseChainParams::MAIN) {
             if(port != mainnetDefaultPort) {
-                strErr = _("Invalid port detected in masternode.conf") + "\n" +
+                strErr = _("Invalid port detected in "MASTERNODE_CONF_FILENAME) + "\n" +
                         strprintf(_("Port: %d"), port) + "\n" +
                         strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
                         strprintf(_("(must be %d for mainnet)"), mainnetDefaultPort);
@@ -75,7 +75,7 @@ bool CMasternodeConfig::read(std::string& strErr) {
                 return false;
             }
         } else if(port == mainnetDefaultPort) {
-            strErr = _("Invalid port detected in masternode.conf") + "\n" +
+            strErr = _("Invalid port detected in "MASTERNODE_CONF_FILENAME) + "\n" +
                     strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
                     strprintf(_("(%d could be used only on mainnet)"), mainnetDefaultPort);
             streamConfig.close();

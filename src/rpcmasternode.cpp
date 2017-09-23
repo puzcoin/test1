@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+#include "globals.h"
 #include "activemasternode.h"
 #include "darksend.h"
 #include "init.h"
@@ -115,12 +115,12 @@ UniValue masternode(const UniValue& params, bool fHelp)
                 "  debug        - Print masternode status\n"
                 "  genkey       - Generate new masternodeprivkey\n"
                 "  outputs      - Print masternode compatible outputs\n"
-                "  start        - Start local Hot masternode configured in dash.conf\n"
-                "  start-alias  - Start single remote masternode by assigned alias configured in masternode.conf\n"
-                "  start-<mode> - Start remote masternodes configured in masternode.conf (<mode>: 'all', 'missing', 'disabled')\n"
+                "  start        - Start local Hot masternode configured in "COIN_CONF_FILENAME"\n"
+                "  start-alias  - Start single remote masternode by assigned alias configured in "MASTERNODE_CONF_FILENAME"\n"
+                "  start-<mode> - Start remote masternodes configured in "MASTERNODE_CONF_FILENAME" (<mode>: 'all', 'missing', 'disabled')\n"
                 "  status       - Print masternode status information\n"
                 "  list         - Print list of all known masternodes (see masternodelist for more info)\n"
-                "  list-conf    - Print masternode.conf in JSON format\n"
+                "  list-conf    - Print "MASTERNODE_CONF_FILENAME" in JSON format\n"
                 "  winner       - Print info on next masternode winner to vote for\n"
                 "  winners      - Print list of masternode winners\n"
                 );
@@ -578,8 +578,8 @@ UniValue masternodebroadcast(const UniValue& params, bool fHelp)
                 "\nArguments:\n"
                 "1. \"command\"        (string or set of strings, required) The command to execute\n"
                 "\nAvailable commands:\n"
-                "  create-alias  - Create single remote masternode broadcast message by assigned alias configured in masternode.conf\n"
-                "  create-all    - Create remote masternode broadcast messages for all masternodes configured in masternode.conf\n"
+                "  create-alias  - Create single remote masternode broadcast message by assigned alias configured in "MASTERNODE_CONF_FILENAME"\n"
+                "  create-all    - Create remote masternode broadcast messages for all masternodes configured in "MASTERNODE_CONF_FILENAME"\n"
                 "  decode        - Decode masternode broadcast message\n"
                 "  relay         - Relay masternode broadcast message to the network\n"
                 );

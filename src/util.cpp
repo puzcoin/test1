@@ -7,7 +7,7 @@
 #if defined(HAVE_CONFIG_H)
 #include "config/dash-config.h"
 #endif
-
+#include "globals.h"
 #include "util.h"
 
 #include "support/allocators/secure.h"
@@ -617,7 +617,7 @@ boost::filesystem::path GetConfigFile()
 
 boost::filesystem::path GetMasternodeConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-mnconf", "masternode.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-mnconf", MASTERNODE_CONF_FILENAME));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
     return pathConfigFile;
 }

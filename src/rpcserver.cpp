@@ -343,18 +343,18 @@ static const CRPCCommand vRPCCommands[] =
 #endif
 
     /* Dash features */
-    { "dash",               "masternode",             &masternode,             true  },
-    { "dash",               "masternodelist",         &masternodelist,         true  },
-    { "dash",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "dash",               "gobject",                &gobject,                true  },
-    { "dash",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "dash",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "dash",               "voteraw",                &voteraw,                true  },
-    { "dash",               "mnsync",                 &mnsync,                 true  },
-    { "dash",               "spork",                  &spork,                  true  },
-    { "dash",               "getpoolinfo",            &getpoolinfo,            true  },
+    { "puzcoin",               "masternode",             &masternode,             true  },
+    { "puzcoin",               "masternodelist",         &masternodelist,         true  },
+    { "puzcoin",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "puzcoin",               "gobject",                &gobject,                true  },
+    { "puzcoin",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "puzcoin",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "puzcoin",               "voteraw",                &voteraw,                true  },
+    { "puzcoin",               "mnsync",                 &mnsync,                 true  },
+    { "puzcoin",               "spork",                  &spork,                  true  },
+    { "puzcoin",               "getpoolinfo",            &getpoolinfo,            true  },
 #ifdef ENABLE_WALLET
-    { "dash",               "privatesend",            &privatesend,            false },
+    { "puzcoin",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -577,7 +577,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> dash-cli " + methodname + " " + args + "\n";
+    return "> puzcoin-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

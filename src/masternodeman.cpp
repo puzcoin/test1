@@ -1421,6 +1421,7 @@ void CMasternodeMan::UpdateMasternodeList(CMasternodeBroadcast mnb)
 
 bool CMasternodeMan::CheckMnbAndUpdateMasternodeList(CNode* pfrom, CMasternodeBroadcast mnb, int& nDos)
 {
+LogPrintf("MMMNNN::CMasternodeMan::CheckMnbAndUpdateMasternodeList\n");
     // Need LOCK2 here to ensure consistent locking order because the SimpleCheck call below locks cs_main
     LOCK2(cs_main, cs);
 

@@ -601,10 +601,12 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
     // we are a masternode with the same vin (i.e. already activated) and this mnb is ours (matches our Masternode privkey)
     // so nothing to do here for us
     if(fMasterNode && vin.prevout == activeMasternode.vin.prevout && pubKeyMasternode == activeMasternode.pubKeyMasternode) {
+LogPrintf("MMMNNN:CheckOutpoint 1\n");
         return false;
     }
 
     if (!CheckSignature(nDos)) {
+LogPrintf("MMMNNN:CheckOutpoint 2\n");
         LogPrintf("CMasternodeBroadcast::CheckOutpoint -- CheckSignature() failed, masternode=%s\n", vin.prevout.ToStringShort());
         return false;
     }
@@ -613,6 +615,8 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
         TRY_LOCK(cs_main, lockMain);
         if(!lockMain) {
             // not mnb fault, let it to be checked again later
+LogPrintf("MMMNNN:CheckOutpoint 3\n");
+
             LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Failed to aquire lock, addr=%s", addr.ToString());
             mnodeman.mapSeenMasternodeBroadcast.erase(GetHash());
             return false;
@@ -622,14 +626,17 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
         if(!pcoinsTip->GetCoins(vin.prevout.hash, coins) ||
            (unsigned int)vin.prevout.n>=coins.vout.size() ||
            coins.vout[vin.prevout.n].IsNull()) {
+LogPrintf("MMMNNN:CheckOutpoint 4\n");
             LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
             return false;
         }
         if(coins.vout[vin.prevout.n].nValue != 1000 * COIN) {
+LogPrintf("MMMNNN:CheckOutpoint 5\n");
             LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Masternode UTXO should have 1000 DASH, masternode=%s\n", vin.prevout.ToStringShort());
             return false;
         }
         if(chainActive.Height() - coins.nHeight + 1 < Params().GetConsensus().nMasternodeMinimumConfirmations) {
+LogPrintf("MMMNNN:CheckOutpoint 6\n");
             LogPrintf("CMasternodeBroadcast::CheckOutpoint -- Masternode UTXO must have at least %d confirmations, masternode=%s\n",
                     Params().GetConsensus().nMasternodeMinimumConfirmations, vin.prevout.ToStringShort());
             // maybe we miss few blocks, let this mnb to be checked again later
@@ -643,6 +650,7 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
     // make sure the vout that was signed is related to the transaction that spawned the Masternode
     //  - this is expensive, so it's only done once per Masternode
     if(!darkSendSigner.IsVinAssociatedWithPubkey(vin, pubKeyCollateralAddress)) {
+LogPrintf("MMMNNN:CheckOutpoint 7\n");
         LogPrintf("CMasternodeMan::CheckOutpoint -- Got mismatched pubKeyCollateralAddress and vin\n");
         nDos = 33;
         return false;
@@ -660,6 +668,7 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
             CBlockIndex* pMNIndex = (*mi).second; // block for 1000 DASH tx -> 1 confirmation
             CBlockIndex* pConfIndex = chainActive[pMNIndex->nHeight + Params().GetConsensus().nMasternodeMinimumConfirmations - 1]; // block where tx got nMasternodeMinimumConfirmations
             if(pConfIndex->GetBlockTime() > sigTime) {
+LogPrintf("MMMNNN:CheckOutpoint 8\n");
                 LogPrintf("CMasternodeBroadcast::CheckOutpoint -- Bad sigTime %d (%d conf block is at %d) for Masternode %s %s\n",
                           sigTime, Params().GetConsensus().nMasternodeMinimumConfirmations, pConfIndex->GetBlockTime(), vin.prevout.ToStringShort(), addr.ToString());
                 return false;

@@ -770,6 +770,7 @@ bool CMasternodePing::CheckSignature(CPubKey& pubKeyMasternode, int &nDos)
 {
     std::string strMessage = vin.ToString() + blockHash.ToString() + boost::lexical_cast<std::string>(sigTime);
     std::string strError = "";
+    
     nDos = 0;
 
     if(!darkSendSigner.VerifyMessage(pubKeyMasternode, vchSig, strMessage, strError)) {
@@ -777,6 +778,7 @@ bool CMasternodePing::CheckSignature(CPubKey& pubKeyMasternode, int &nDos)
         nDos = 33;
         return false;
     }
+    sigTime = GetAdjustedTime();
     return true;
 }
 

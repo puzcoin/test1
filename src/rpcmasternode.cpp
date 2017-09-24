@@ -263,6 +263,7 @@ UniValue masternode(const UniValue& params, bool fHelp)
                 CMasternodeBroadcast mnb;
 
                 bool fResult = CMasternodeBroadcast::Create(mne.getIp(), mne.getPrivKey(), mne.getTxHash(), mne.getOutputIndex(), strError, mnb);
+LogPrintf("MMNN:%s", fResult ? "successful" : "failed");
 
                 statusObj.push_back(Pair("result", fResult ? "successful" : "failed"));
                 if(fResult) {

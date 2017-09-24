@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2017 The Dash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+#include "globals.h"
 #include "activemasternode.h"
 #include "masternode.h"
 #include "masternode-sync.h"
@@ -210,8 +210,8 @@ void CActiveMasternode::ManageStateInitial()
         return;
     }
 
-    if(pwalletMain->GetBalance() < 1000*COIN) {
-        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 1000 DASH\n", GetStateString());
+    if(pwalletMain->GetBalance() < MASTERNODE_COIN_NEEDED*COIN) {
+        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < "MASTERNODE_COIN_NEEDED" PUZCOIN\n", GetStateString());
         return;
     }
 

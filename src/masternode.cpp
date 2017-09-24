@@ -600,6 +600,7 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
 {
     // we are a masternode with the same vin (i.e. already activated) and this mnb is ours (matches our Masternode privkey)
     // so nothing to do here for us
+LogPrintf("MMMNNN:CheckOutpoint 0\n");
     if(fMasterNode && vin.prevout == activeMasternode.vin.prevout && pubKeyMasternode == activeMasternode.pubKeyMasternode) {
 LogPrintf("MMMNNN:CheckOutpoint 1\n");
         return false;
@@ -630,7 +631,7 @@ LogPrintf("MMMNNN:CheckOutpoint 4\n");
             LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
             return false;
         }
-        if(coins.vout[vin.prevout.n].nValue != 1000 * COIN) {
+        if(coins.vout[vin.prevout.n].nValue != MASTERNODE_COIN_NEEDED * COIN) {
 LogPrintf("MMMNNN:CheckOutpoint 5\n");
             LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Masternode UTXO should have 1000 DASH, masternode=%s\n", vin.prevout.ToStringShort());
             return false;

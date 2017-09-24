@@ -211,7 +211,7 @@ void CActiveMasternode::ManageStateInitial()
     }
 
     if(pwalletMain->GetBalance() < MASTERNODE_COIN_NEEDED*COIN) {
-        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < "MASTERNODE_COIN_NEEDED" PUZCOIN\n", GetStateString());
+        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < %d PUZCOIN\n", GetStateString(),MASTERNODE_COIN_NEEDED);
         return;
     }
 

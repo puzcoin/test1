@@ -16,7 +16,7 @@
 #include <boost/lexical_cast.hpp>
 
 
-CMasternode::CMasternode() :
+CMasternode::CMasternode() /*:
     vin(),
     addr(),
     pubKeyCollateralAddress(),
@@ -35,52 +35,80 @@ CMasternode::CMasternode() :
     nPoSeBanScore(0),
     nPoSeBanHeight(0),
     fAllowMixingTx(true),
-    fUnitTest(false)
-{LogPrintf("NEW:CMasternode1\n");}
+    fUnitTest(false)*/
+{
+    LOCK(cs);
+    vin = CTxIn();
+    addr = CService();
+    pubKeyCollateralAddress = CPubKey();
+    pubKeyMasternode = CPubKey();
+    lastPing = CMasternodePing();
+    vchSig = std::vector<unsigned char>();
+    sigTime = GetAdjustedTime();
+    nLastDsq = 0;
+    nTimeLastChecked = 0;
+    nTimeLastPaid = 0;
+    nTimeLastWatchdogVote = 0;
+    nActiveState = MASTERNODE_ENABLED;
+    nCacheCollateralBlock = 0;
+    nBlockLastPaid = 0;
+    nProtocolVersion = PROTOCOL_VERSION;
+    nPoSeBanScore = 0;
+    nPoSeBanHeight = 0;
+    fAllowMixingTx = true;
+    fUnitTest = false;
+    LogPrintf("NEW:CMasternode1\n");
 
-CMasternode::CMasternode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyMasternodeNew, int nProtocolVersionIn) :
-    vin(vinNew),
-    addr(addrNew),
-    pubKeyCollateralAddress(pubKeyCollateralAddressNew),
-    pubKeyMasternode(pubKeyMasternodeNew),
-    lastPing(),
-    vchSig(),
-    sigTime(GetAdjustedTime()),
-    nLastDsq(0),
-    nTimeLastChecked(0),
-    nTimeLastPaid(0),
-    nTimeLastWatchdogVote(0),
-    nActiveState(MASTERNODE_ENABLED),
-    nCacheCollateralBlock(0),
-    nBlockLastPaid(0),
-    nProtocolVersion(nProtocolVersionIn),
-    nPoSeBanScore(0),
-    nPoSeBanHeight(0),
-    fAllowMixingTx(true),
-    fUnitTest(false)
-{LogPrintf("NEW:CMasternode2\n");}
+}
 
-CMasternode::CMasternode(const CMasternode& other) :
-    vin(other.vin),
-    addr(other.addr),
-    pubKeyCollateralAddress(other.pubKeyCollateralAddress),
-    pubKeyMasternode(other.pubKeyMasternode),
-    lastPing(other.lastPing),
-    vchSig(other.vchSig),
-    sigTime(other.sigTime),
-    nLastDsq(other.nLastDsq),
-    nTimeLastChecked(other.nTimeLastChecked),
-    nTimeLastPaid(other.nTimeLastPaid),
-    nTimeLastWatchdogVote(other.nTimeLastWatchdogVote),
-    nActiveState(other.nActiveState),
-    nCacheCollateralBlock(other.nCacheCollateralBlock),
-    nBlockLastPaid(other.nBlockLastPaid),
-    nProtocolVersion(other.nProtocolVersion),
-    nPoSeBanScore(other.nPoSeBanScore),
-    nPoSeBanHeight(other.nPoSeBanHeight),
-    fAllowMixingTx(other.fAllowMixingTx),
-    fUnitTest(other.fUnitTest)
-{LogPrintf("NEW:CMasternode3\n");}
+
+CMasternode::CMasternode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyMasternodeNew, int nProtocolVersionIn)/* :*/
+{
+    vin = vinNew;
+    addr = addrNew;
+    pubKeyCollateralAddress = pubKeyCollateralAddressNew;
+    pubKeyMasternode = pubKeyMasternodeNew;
+    lastPing = CMasternodePing();;
+    vchSig = std::vector<unsigned char>();
+    sigTime = GetAdjustedTime();
+    nLastDsq = 0;
+    nTimeLastChecked = 0;
+    nTimeLastPaid = 0;
+    nTimeLastWatchdogVote = 0;
+    nActiveState = MASTERNODE_ENABLED;
+    nCacheCollateralBlock = 0;
+    nBlockLastPaid = 0;
+    nProtocolVersion = nProtocolVersionIn;
+    nPoSeBanScore = 0;
+    nPoSeBanHeight = 0;
+    fAllowMixingTx = true;
+    fUnitTest = false;
+    LogPrintf("NEW:CMasternode2\n");
+}
+
+CMasternode::CMasternode(const CMasternode& other) /*:*/
+{
+    vin = other.vin;
+    addr = other.addr;
+    pubKeyCollateralAddress = other.pubKeyCollateralAddress;
+    pubKeyMasternode = other.pubKeyMasternode;
+    lastPing = other.lastPing;
+    vchSig = other.vchSig;
+    sigTime = other.sigTime;
+    nLastDsq = other.nLastDsq;
+    nTimeLastChecked = other.nTimeLastChecked;
+    nTimeLastPaid = other.nTimeLastPaid;
+    nTimeLastWatchdogVote = other.nTimeLastWatchdogVote;
+    nActiveState = other.nActiveState;
+    nCacheCollateralBlock = other.nCacheCollateralBlock;
+    nBlockLastPaid = other.nBlockLastPaid;
+    nProtocolVersion = other.nProtocolVersion;
+    nPoSeBanScore = other.nPoSeBanScore;
+    nPoSeBanHeight = other.nPoSeBanHeight;
+    fAllowMixingTx = other.fAllowMixingTx;
+    fUnitTest = other.fUnitTest;
+    LogPrintf("NEW:CMasternode3\n");
+}
 
 CMasternode::CMasternode(const CMasternodeBroadcast& mnb) :
     vin(mnb.vin),
@@ -109,7 +137,7 @@ CMasternode::CMasternode(const CMasternodeBroadcast& mnb) :
 //
 bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb)
 {
-LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 1\n");
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 1 \n");
     if(mnb.sigTime <= sigTime && !mnb.fRecovery) return false;
 
     pubKeyMasternode = mnb.pubKeyMasternode;
@@ -121,7 +149,7 @@ LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 1
     nPoSeBanHeight = 0;
     nTimeLastChecked = 0;
     int nDos = 0;
-LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 2\n");
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 2 sigTime = %d,lastPing.sigTime=%d\n",sigTime, mnb.lastPing.sigTime);
     if(mnb.lastPing == CMasternodePing() || (mnb.lastPing != CMasternodePing() && mnb.lastPing.CheckAndUpdate(this, true, nDos))) {
 LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 2.5\n");
         lastPing = mnb.lastPing;
@@ -554,6 +582,7 @@ LogPrintf("MMMNNN:CMasternodeBroadcast::SimpleCheck\n");
 
 bool CMasternodeBroadcast::Update(CMasternode* pmn, int& nDos)
 {
+LogPrintf("bool CMasternodeBroadcast::Update(CMasternode* pmn, int& nDos)\n");
     nDos = 0;
 
     if(pmn->sigTime == sigTime && !fRecovery) {

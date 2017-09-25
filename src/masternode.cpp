@@ -36,7 +36,7 @@ CMasternode::CMasternode() :
     nPoSeBanHeight(0),
     fAllowMixingTx(true),
     fUnitTest(false)
-{}
+{LogPrintf("NEW:CMasternode1\n");}
 
 CMasternode::CMasternode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyMasternodeNew, int nProtocolVersionIn) :
     vin(vinNew),
@@ -58,7 +58,7 @@ CMasternode::CMasternode(CService addrNew, CTxIn vinNew, CPubKey pubKeyCollatera
     nPoSeBanHeight(0),
     fAllowMixingTx(true),
     fUnitTest(false)
-{}
+{LogPrintf("NEW:CMasternode2\n");}
 
 CMasternode::CMasternode(const CMasternode& other) :
     vin(other.vin),
@@ -80,7 +80,7 @@ CMasternode::CMasternode(const CMasternode& other) :
     nPoSeBanHeight(other.nPoSeBanHeight),
     fAllowMixingTx(other.fAllowMixingTx),
     fUnitTest(other.fUnitTest)
-{}
+{LogPrintf("NEW:CMasternode3\n");}
 
 CMasternode::CMasternode(const CMasternodeBroadcast& mnb) :
     vin(mnb.vin),
@@ -102,13 +102,14 @@ CMasternode::CMasternode(const CMasternodeBroadcast& mnb) :
     nPoSeBanHeight(0),
     fAllowMixingTx(true),
     fUnitTest(false)
-{}
+{LogPrintf("NEW:CMasternode4\n");}
 
 //
 // When a new masternode broadcast is sent, update our information
 //
 bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb)
 {
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 1\n");
     if(mnb.sigTime <= sigTime && !mnb.fRecovery) return false;
 
     pubKeyMasternode = mnb.pubKeyMasternode;
@@ -120,23 +121,30 @@ bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb)
     nPoSeBanHeight = 0;
     nTimeLastChecked = 0;
     int nDos = 0;
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 2\n");
     if(mnb.lastPing == CMasternodePing() || (mnb.lastPing != CMasternodePing() && mnb.lastPing.CheckAndUpdate(this, true, nDos))) {
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 2.5\n");
         lastPing = mnb.lastPing;
         mnodeman.mapSeenMasternodePing.insert(std::make_pair(lastPing.GetHash(), lastPing));
     }
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 3\n");
     // if it matches our Masternode privkey...
     if(fMasterNode && pubKeyMasternode == activeMasternode.pubKeyMasternode) {
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 3.5\n");
         nPoSeBanScore = -MASTERNODE_POSE_BAN_MAX_SCORE;
         if(nProtocolVersion == PROTOCOL_VERSION) {
             // ... and PROTOCOL_VERSION, then we've been remotely activated ...
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 3.5.5\n");
             activeMasternode.ManageState();
         } else {
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 3.5.6\n");
             // ... otherwise we need to reactivate our node, do not add it to the list and do not relay
             // but also do not ban the node we get this message from
             LogPrintf("CMasternode::UpdateFromNewBroadcast -- wrong PROTOCOL_VERSION, re-activate your MN: message nProtocolVersion=%d  PROTOCOL_VERSION=%d\n", nProtocolVersion, PROTOCOL_VERSION);
             return false;
         }
     }
+LogPrintf("bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb) 4\n");
     return true;
 }
 
@@ -170,7 +178,7 @@ void CMasternode::Check(bool fForce)
     if(!fForce && (GetTime() - nTimeLastChecked < MASTERNODE_CHECK_SECONDS)) return;
     nTimeLastChecked = GetTime();
 
-    LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state\n", vin.prevout.ToStringShort(), GetStateString());
+    LogPrintf( "CMasternode::Check -- Masternode %s is in %s state\n", vin.prevout.ToStringShort(), GetStateString());
 
     //once spent, stop doing the checks
     if(IsOutpointSpent()) return;
@@ -185,7 +193,7 @@ void CMasternode::Check(bool fForce)
            (unsigned int)vin.prevout.n>=coins.vout.size() ||
            coins.vout[vin.prevout.n].IsNull()) {
             nActiveState = MASTERNODE_OUTPOINT_SPENT;
-            LogPrint("masternode", "CMasternode::Check -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
+            LogPrintf( "CMasternode::Check -- Failed to find Masternode UTXO, masternode=%s\n", vin.prevout.ToStringShort());
             return;
         }
 
@@ -218,7 +226,7 @@ void CMasternode::Check(bool fForce)
     if(fRequireUpdate) {
         nActiveState = MASTERNODE_UPDATE_REQUIRED;
         if(nActiveStatePrev != nActiveState) {
-            LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+            LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
         }
         return;
     }
@@ -229,7 +237,7 @@ void CMasternode::Check(bool fForce)
     if(fWaitForPing && !fOurMasternode) {
         // ...but if it was already expired before the initial check - return right away
         if(IsExpired() || IsWatchdogExpired() || IsNewStartRequired()) {
-            LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state, waiting for ping\n", vin.prevout.ToStringShort(), GetStateString());
+            LogPrintf( "CMasternode::Check -- Masternode %s is in %s state, waiting for ping\n", vin.prevout.ToStringShort(), GetStateString());
             return;
         }
     }
@@ -240,7 +248,7 @@ void CMasternode::Check(bool fForce)
         if(!IsPingedWithin(MASTERNODE_NEW_START_REQUIRED_SECONDS)) {
             nActiveState = MASTERNODE_NEW_START_REQUIRED;
             if(nActiveStatePrev != nActiveState) {
-                LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+                LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
             }
             return;
         }
@@ -248,13 +256,13 @@ void CMasternode::Check(bool fForce)
         bool fWatchdogActive = masternodeSync.IsSynced() && mnodeman.IsWatchdogActive();
         bool fWatchdogExpired = (fWatchdogActive && ((GetTime() - nTimeLastWatchdogVote) > MASTERNODE_WATCHDOG_MAX_SECONDS));
 
-        LogPrint("masternode", "CMasternode::Check -- outpoint=%s, nTimeLastWatchdogVote=%d, GetTime()=%d, fWatchdogExpired=%d\n",
+        LogPrintf( "CMasternode::Check -- outpoint=%s, nTimeLastWatchdogVote=%d, GetTime()=%d, fWatchdogExpired=%d\n",
                 vin.prevout.ToStringShort(), nTimeLastWatchdogVote, GetTime(), fWatchdogExpired);
 
         if(fWatchdogExpired) {
             nActiveState = MASTERNODE_WATCHDOG_EXPIRED;
             if(nActiveStatePrev != nActiveState) {
-                LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+                LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
             }
             return;
         }
@@ -262,7 +270,7 @@ void CMasternode::Check(bool fForce)
         if(!IsPingedWithin(MASTERNODE_EXPIRATION_SECONDS)) {
             nActiveState = MASTERNODE_EXPIRED;
             if(nActiveStatePrev != nActiveState) {
-                LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+                LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
             }
             return;
         }
@@ -271,13 +279,13 @@ LogPrintf("MMMNNNN:CMasternode::Check -- Masternode %s is in %s state now lastPi
     if(lastPing.sigTime - sigTime < 0) {//MASTERNODE_MIN_MNP_SECONDS) {
         nActiveState = MASTERNODE_PRE_ENABLED;
         if(nActiveStatePrev != nActiveState) {
-            LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+            LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
         }
         return;
     }
     nActiveState = MASTERNODE_ENABLED; // OK
     if(nActiveStatePrev != nActiveState) {
-        LogPrint("masternode", "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
+        LogPrintf( "CMasternode::Check -- Masternode %s is in %s state now\n", vin.prevout.ToStringShort(), GetStateString());
     }
 }
 
@@ -735,6 +743,7 @@ void CMasternodeBroadcast::Relay()
 
 CMasternodePing::CMasternodePing(CTxIn& vinNew)
 {
+LogPrintf("CMasternodePing::CMasternodePing(CTxIn& vinNew)\n");
     LOCK(cs_main);
     if (!chainActive.Tip() || chainActive.Height() < 12) return;
 
@@ -746,6 +755,7 @@ CMasternodePing::CMasternodePing(CTxIn& vinNew)
 
 bool CMasternodePing::Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode)
 {
+LogPrintf("bool CMasternodePing::Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode)\n");
     std::string strError;
     std::string strMasterNodeSignMessage;
 
@@ -768,6 +778,7 @@ bool CMasternodePing::Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode)
 
 bool CMasternodePing::CheckSignature(CPubKey& pubKeyMasternode, int &nDos)
 {
+LogPrintf("bool CMasternodePing::CheckSignature(CPubKey& pubKeyMasternode, int &nDos)\n");
     std::string strMessage = vin.ToString() + blockHash.ToString() + boost::lexical_cast<std::string>(sigTime);
     std::string strError = "";
     
@@ -778,12 +789,13 @@ bool CMasternodePing::CheckSignature(CPubKey& pubKeyMasternode, int &nDos)
         nDos = 33;
         return false;
     }
-    sigTime = GetAdjustedTime();
+    //sigTime = GetAdjustedTime();
     return true;
 }
 
 bool CMasternodePing::SimpleCheck(int& nDos)
 {
+LogPrintf("bool CMasternodePing::SimpleCheck(int& nDos)\n");
     // don't ban by default
     nDos = 0;
 
@@ -809,6 +821,7 @@ bool CMasternodePing::SimpleCheck(int& nDos)
 
 bool CMasternodePing::CheckAndUpdate(CMasternode* pmn, bool fFromNewBroadcast, int& nDos)
 {
+LogPrintf("bool CMasternodePing::CheckAndUpdate(CMasternode* pmn, bool fFromNewBroadcast, int& nDos)\n");
     // don't ban by default
     nDos = 0;
 
@@ -888,6 +901,7 @@ bool CMasternodePing::CheckAndUpdate(CMasternode* pmn, bool fFromNewBroadcast, i
 
 void CMasternodePing::Relay()
 {
+LogPrintf("void CMasternodePing::Relay()\n");
     CInv inv(MSG_MASTERNODE_PING, GetHash());
     RelayInv(inv);
 }

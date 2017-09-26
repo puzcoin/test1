@@ -15,9 +15,9 @@ CActiveMasternode activeMasternode;
 
 void CActiveMasternode::ManageState()
 {
-    LogPrint("masternode", "CActiveMasternode::ManageState -- Start\n");
+    LogPrintf("CActiveMasternode::ManageState -- Start\n");
     if(!fMasterNode) {
-        LogPrint("masternode", "CActiveMasternode::ManageState -- Not a masternode, returning\n");
+        LogPrintf("CActiveMasternode::ManageState -- Not a masternode, returning\n");
         return;
     }
 
@@ -31,7 +31,7 @@ void CActiveMasternode::ManageState()
         nState = ACTIVE_MASTERNODE_INITIAL;
     }
 
-    LogPrint("masternode", "CActiveMasternode::ManageState -- status = %s, type = %s, pinger enabled = %d\n", GetStatus(), GetTypeString(), fPingerEnabled);
+    LogPrintf("CActiveMasternode::ManageState -- status = %s, type = %s, pinger enabled = %d\n", GetStatus(), GetTypeString(), fPingerEnabled);
 
     if(eType == MASTERNODE_UNKNOWN) {
         ManageStateInitial();
@@ -108,7 +108,6 @@ bool CActiveMasternode::SendMasternodePing()
     }
 
     CMasternodePing mnp(vin);
-LogPrintf("MMMNNNN:Sign before\n");
     if(!mnp.Sign(keyMasternode, pubKeyMasternode)) {
         LogPrintf("CActiveMasternode::SendMasternodePing -- ERROR: Couldn't sign Masternode Ping\n");
         return false;
@@ -211,7 +210,7 @@ void CActiveMasternode::ManageStateInitial()
     }
 
     if(pwalletMain->GetBalance() < MASTERNODE_COIN_NEEDED*COIN) {
-        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < %d PUZCOIN\n", GetStateString(),MASTERNODE_COIN_NEEDED);
+        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 1000 DASH\n", GetStateString());
         return;
     }
 
